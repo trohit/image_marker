@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>{{title}}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>      
+
+	<!-- Custom styling -->
+	<style>
+	body {
+        /*
+        background-color: lightblue;
+	    background-color: lightyellow;
+        background-color: papayawhip;
+        */
+        background-color:cornsilk ;
+	}
+	
+    h1 {
+
+        /*
+        http://htmlcolorcodes.com/color-names/
+        color: gray;
+        color: maroon;
+        color: brown;
+        */
+        color: teal;
+	    text-align: center;
+	}
+	
+	p {
+	    font-family: verdana;
+	    font-size: 20px;
+	}
+	</style>
+	<!-- Custom styling ends -->
+    </head>
+    <body>
+       <h1>{{title}}</h1>
+       <div class="container">
+      <h3> Result: {{ pred }} -> {{ markedFileName }} </h3>
+      <br>WxH:{{width}}X{{height}}
+      <br>Label WxH:{{label_width}}X{{label_height}}
+      <br>Watermark color: {{watermark_color}}
+      <br>Font : {{font}}
+      <br>Font scale: {{fontScale}}
+      <br>Font color(BGR): {{fontColor}}
+      <br>Font size: {{fontSize}}
+      <br>Font thickness: {{thickness}}
+      <br>Placement: {{placement}}
+ 
+      <br><br>
+      <img src="http://{{server_url}}/{{markedFilePath}}" alt="result" style="width:304px;height:228px;">
+      <br><br>
+      click <a href="http://{{server_url}}/{{markedFilePath}}">here</a> to view result.
+      Or  <a href="http://{{server_url}}">upload</a> another pic.
+  </div>
+    </body>
+  </html>

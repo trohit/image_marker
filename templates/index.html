@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>{{title}}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      <meta name="description" content="Upload files and label them with text. Registration is not required.">
+      <meta name="author" content="Rohit T">
+      <link rel="icon" href="http://localhost:8000/static/img/favicon.ico">
+
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>      
+
+	<!-- Custom styling -->
+	<style>
+	body {
+        /*
+        background-color: lightblue;
+	    background-color: lightyellow;
+        background-color: papayawhip;
+        background-color:cornsilk ;
+        */
+        background-color: cornsilk;
+	}
+	
+    h1 {
+        /*
+        color: gray;
+        color: maroon;
+        color: brown;
+        */
+        color: teal;
+	    text-align: center;
+	}
+    h3 {
+        color: gray;
+	    text-align: center;
+	}
+	
+	p {
+	    font-family: verdana;
+	    font-size: 20px;
+	}
+	</style>
+	<!-- Custom styling ends -->
+
+    </head>
+   <body>
+       <h1>{{title}}</h1>
+       <h3>
+           Simply upload files and download the image / share the URL. 
+           <br>
+           The files will expire automatically every 48 hours.
+       </h2>
+       <div class="container">
+       <form action = "uploader" method = "POST" enctype = "multipart/form-data">
+	 
+     <div class="form-group">
+         <label for="file" name="pickafile" id="pickafile" >Pick a File:</label>
+         <input type = "file" class="form-control" name = "file" id="file"/>
+     </div>   
+
+	 <br>
+     <div class="form-group">
+         <label for="label">Label:</label>
+	     <input type="text" name="label" class="form-control" placeholder="Text to label the image" id="label">
+     </div>   
+	 <br>
+     <div class="form-group">
+         <label for="color">Text Color:</label>
+        <select required name="color" id="color">
+            <!--
+            <option selected="true" disabled="disabled">Font Color</option>    
+	        <option value="black">black</option>
+            -->
+            <option selected value="black">black</option>
+	        <option value="white">white</option>
+	        <option value="red">red</option>
+	        <option value="blue">blue</option>
+	        <option value="green">green</option>
+	        <option value="yellow">yellow</option>
+        </select>
+        <!--
+        A better color selector pallete.
+        <input type="color" name="wizcolor" id="wizcolor" value="#ff0000">
+        -->
+     </div>   
+	 <br>
+     <div class="form-group">
+         <label for="fontsize">Font Size:</label>
+	    <select required name="fontsize" id="fontsize">
+	        <option value="1">1</option>
+	        <option selected value="2">2</option>
+	        <option value="3">3</option>
+	        <option value="4">4</option>
+	        <option value="5">5</option>
+	    </select>
+     </div>   
+	 <br>
+     <div class="form-group">
+         <label for="thickness">Thickness:</label>
+	    <select required name="thickness" id="thickness">
+	        <option value="1">1</option>
+	        <option selected value="2">2</option>
+	        <option value="3">3</option>
+	        <option value="4">4</option>
+	        <option value="5">5</option>
+        </select>
+     </div>   
+	 <br>
+     <div class="form-group">
+         <label for="placement">Placement:</label>
+	    <select required name="placement" id="placement">
+	        <option selected value="topleft">TopLeft</option>
+	        <option value="topright">TopRight</option>
+	        <option value="bottomleft">BottomLeft</option>
+	        <option value="bottomright">BottomRight</option>
+	        <option value="center">Center</option>
+        </select>
+     </div>   
+
+     <br>
+
+         <input class="btn btn-success btn-lg" type = "submit"/>
+     </form>
+ </div>
+      
+   </body>
+</html>
