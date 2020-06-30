@@ -292,7 +292,16 @@ def static_proxy(path):
     print('this is the path')
     # send_static_file will guess the correct MIME type
     return app.send_static_file(path)
+def init():
+    # make dirs
+    upload_dir = "static/uploads"
+    download_dir = "static/downloads"
+    if not os.path.exists(upload_dir):
+        os.mkdirs(upload_dir)
+    if not os.path.exists(download_dir):
+        os.mkdirs(download_dir)
 
 if __name__ == '__main__':
+    init()
     app.debug = True
     app.run(host='0.0.0.0', port=5000, threaded = True)
