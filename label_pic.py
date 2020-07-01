@@ -132,7 +132,7 @@ def watermark_img(filename, watermark_label, gen_salt, watermark_color, fontSize
 
     # http://docs.opencv.org/modules/core/doc/drawing_functions.html#gettextsize
     # Returns bounding box and baseline -> ((width, height), baseline)
-    textSize         = cv2.getTextSize(watermark_label, font, fontScale, thickness)
+    textSize         = cv2.getTextSize(watermark_label, font, fontScale, thickness*2)
     label_width     = textSize[0][0]
     label_height     = textSize[0][1]
 
@@ -148,6 +148,7 @@ def watermark_img(filename, watermark_label, gen_salt, watermark_color, fontSize
     bottomLeftCornerOfText  = (margin_startx, int(height - (label_height)))
     topRightCornerOfText  = (margin_endx - label_width, margin_starty)
     bottomRightCornerOfText  = (margin_endx - label_width, int(height - (label_height)))
+    centerCornerOfText  = (int( (margin_endx/2) - label_width/2), int((height/2) - label_height/2))
 
     """
 	        <option selected value="topleft">TopLeft</option>
@@ -164,10 +165,8 @@ def watermark_img(filename, watermark_label, gen_salt, watermark_color, fontSize
         selectedCornerOfText = topRightCornerOfText
     elif placement == "bottomright":    
         selectedCornerOfText = bottomRightCornerOfText
-        """
     elif placement == "center":    
         selectedCornerOfText = centerCornerOfText
-"""
 
     """
     selectedCornerOfText = topLeftCornerOfText
@@ -216,7 +215,7 @@ def watermark_img(filename, watermark_label, gen_salt, watermark_color, fontSize
 
 @app.route('/')
 def upload_file():
-   return render_template('index.html', title="Image marker",server_ip=request.host)
+   return render_template('index.html', title="Chitralekha - an image marker",server_ip=request.host)
 
 def allowed_file(filename):
     return '.' in filename and \
