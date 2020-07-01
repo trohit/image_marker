@@ -15,7 +15,8 @@
 ##############################################################################
 from flask import Flask, flash, render_template, request, session, abort
 from flask import jsonify
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
+
 import cv2
 import sys
 import errno    
@@ -298,8 +299,9 @@ def init():
     download_dir = "static/downloads"
     if not os.path.exists(upload_dir):
         os.mkdirs(upload_dir)
+        os.makedirs(upload_dir)
     if not os.path.exists(download_dir):
-        os.mkdirs(download_dir)
+        os.makedirs(download_dir)
 
 if __name__ == '__main__':
     init()
